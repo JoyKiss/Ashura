@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+ <generatorConfiguration>
+     <!-- 数据库驱动包位置 -->
+     <classPathEntry location="D:\dmp\Maven\.m2\repository\mysql\mysql-connector-java\5.1.40\mysql-connector-java-5.1.40.jar" /> 
+     <context id="DB2Tables" targetRuntime="MyBatis3">
+         <commentGenerator>
+             <property name="suppressAllComments" value="true" />
+         </commentGenerator>
+         <!-- 数据库链接URL、用户名、密码 -->
+          <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.0.252:3306/dmp_v2" userId="root" password="111111"> 
+         </jdbcConnection>
+         <javaTypeResolver>
+             <property name="forceBigDecimals" value="false" />
+         </javaTypeResolver>
+         <!-- 生成实体类的包名和位置，这里配置将生成的实体类放在com.zhiziyun.dmp.bean这个包下 -->
+         <javaModelGenerator targetPackage="com.ashura.entity" targetProject="E:\scala\eclipse\workspace\Ashura\src\main\java\">
+                                                                                 
+             <property name="enableSubPackages" value="true" />
+             <property name="trimStrings" value="true" /> 
+         </javaModelGenerator>
+         <!-- 生成的SQL映射文件包名和位置，这里配置将生成的SQL映射文件放在com.zhiziyun.dmp.dao.mybatis这个包下 -->
+         <sqlMapGenerator targetPackage="com.ashura.dao.mybatis" targetProject="E:\scala\eclipse\workspace\Ashura\src\main\resources\">
+             <property name="enableSubPackages" value="true" />
+         </sqlMapGenerator>
+         <!-- 生成XML的包名和位置，这里配置将生成的XML放在com.zhiziyun.dmp.dao.mapper这个包下 -->
+         <javaClientGenerator type="XMLMAPPER" targetPackage="com.ashura.dao.mapper" targetProject="E:\scala\eclipse\workspace\Ashura\src\main\java\">
+             <property name="enableSubPackages" value="true" />
+         </javaClientGenerator>
+         <!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
+           <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample   
+                是否生成 example类   -->  
+<!--          <table tableName="UM_MAPPER_REPORT_GID" domainObjectName="UmMapperReportGid" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" /> -->
+         <table tableName="UM_RULE_STATUS" domainObjectName="UmRuleStatus" />
+     </context>
+     <!-- 执行cd workspace/dmp/-> 执行mvn mybatis-generator:generate -->
+</generatorConfiguration>
